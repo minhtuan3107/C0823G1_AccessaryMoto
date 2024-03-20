@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public interface MotobikeAccessoryRepository extends JpaRepository<MotobikeAccessory,Long> {
     @Query(value = "select * from motobike_accessory\n" +
-            "order by motobike_accessory.date desc", nativeQuery = true)
+            "where is_delete = 0 order by motobike_accessory.date desc", nativeQuery = true)
     List<MotobikeAccessory> getListNew();
 
   @Query(value = "select * from motobike_accessory\n" +

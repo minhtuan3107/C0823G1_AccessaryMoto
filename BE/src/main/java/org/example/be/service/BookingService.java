@@ -16,4 +16,20 @@ public class BookingService implements IBookingService {
     public List<Booking> getListByIdAccount(Long id) {
         return bookingRepository.getListBookingByIdAccount(id);
     }
+
+    @Override
+    public List<Booking> getCartByIdAccount(Long id) {
+        return bookingRepository.getCart(id);
+    }
+
+    @Override
+    public Long getAmountPriceCart(Long id) {
+        return bookingRepository.getAmountPriceByAccountId(id);
+    }
+
+    @Override
+    public void addToCard(Long idAccount, Long idAccessory) {
+        bookingRepository.addToCard(idAccount, idAccessory);
+    }
+
 }
